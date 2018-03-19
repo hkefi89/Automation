@@ -1,0 +1,38 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+Test-Case-01
+    Open Browser    https://connect-r.keolis.com/front    chrome
+    Sleep    2s
+    Input Text    //*[@name='AUTHENTICATION.LOGIN']    seray.marc@keolis.com
+    Sleep    2s
+    Click Element    //*[@name='validateButton']
+    Sleep    2s
+    Input Password    //*[@name='AUTHENTICATION.PASSWORD']    P@rrot123456
+    Sleep    2s
+    Click Element    //*[@name='validateButton']
+    Close Browser
+
+Test-Case-02
+    Open Browser    https://connect-r.keolis.com/front    chrome
+    Sleep    2s
+    Input Text    //*[@name='AUTHENTICATION.LOGIN']    seray.marc@keolis.com
+    Sleep    2s
+    Click Element    //*[@name='validateButton']
+    Sleep    2s
+    Click Element    //*[@id="contenu_specifique_application"]/form/div[2]/a
+    Sleep    2s
+    Input Password    //*[@placeholder="Quelle est la capitale de votre pays étranger préféré ?"]    Tunis
+    Sleep    2s
+    Input Password    //*[@placeholder="Quel est le prénom de votre premier colocataire ?"]    Xavier
+    Sleep    2s
+    Input Password    //*[@placeholder="Quel est le prénom de votre meilleur ami d'enfance ?"]    Xavier
+    Sleep    2s
+    ClickButton    id=validateButton
+    Sleep    2s
+    Input Password    id=AUTHENTICATION.NEWPASSWORD    P@rrot123456
+    Sleep    2s
+    Input Password    id=AUTHENTICATION.PASSWORDCONF    P@rrot123456
+    ClickButton    id=validateButton
+    sleep    2s
